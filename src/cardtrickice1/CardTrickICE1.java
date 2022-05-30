@@ -5,29 +5,43 @@
  */
 package cardtrickice1;
 
-/** step1 : generate 7 random cards and store in array - how
- * step 2: take any card input from user suit,number
- * step 3: user card is in  the array 'card is found'
- *
- * @author sivagamasrinivasan,May 23rd
- */
+import java.util.Scanner;
+
+import static cardtrickice1.Card.RANKS;
+import static cardtrickice1.Card.SUITS;
+
 public class CardTrickICE1 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) 
     {
-        Card[] magicHand = new Card[7]; //Array of object
-        for( int i=0;i<magicHand.length;i++)
-        {
-            Card c1 = new Card();
-            c1.setValue(2);//use a method to generate random *13
-            c1.setSuits("hearts");//random method suit 
+        Card[] magicHand = new Card[7];
+        String draw;
+        String rank;
+
+        for(int i=0;i<magicHand.length;i++) {
+            draw = SUITS[(int) (Math.random()*4)];
+            rank = RANKS[(int) (Math.random()*13)];
+            magicHand[i] = new Card(draw, rank);
+            System.out.println(magicHand[i]);
         }
-        //step 2:take input 
-        
-        //step 3: match with array 
+        System.out.println();
+
+        Scanner input = new Scanner(System.in);
+        System.out.print("1. diamonds\n2. clubs\n3. spades\n4. hearts\nChoose suit: ");
+        int suit = input.nextInt();
+        System.out.print("Enter rank number(1 to 13): ");
+        int value = input.nextInt();
+        Card c1 = new Card(SUITS[suit-1], RANKS[value-1]);
+        System.out.println(c1);
+
+        String output = "Sorry, no match";
+        for (Card card : magicHand) {
+            if (c1.toString().equals(card.toString())) {
+                output = "Card is found";
+                break;
+            }
+        }
+        System.out.println(output);
     }
     
 }
