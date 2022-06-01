@@ -14,7 +14,7 @@ public class CardTrickICE1 {
 
     public static void main(String[] args) 
     {
-        Card luckCard = new Card("diamonds",8); //Added from GitHub
+        Card luckCard = new Card("diamonds","8"); //Added from GitHub
         Card[] magicHand = new Card[7];
         String draw;
         String rank;
