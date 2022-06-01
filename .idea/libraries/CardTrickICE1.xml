@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="CardTrickICE1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/CardTrickICE1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
